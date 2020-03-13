@@ -67,4 +67,9 @@ export class LandingComponent implements OnInit {
       });
     }, error => this.toastrService.error(error['message']));
   }
+
+  scrollTo(section02: HTMLElement) {
+    // section02.scrollIntoView();
+    section02.scrollIntoView({behavior:"smooth"});
+  }
 }
