@@ -3,24 +3,14 @@ import {ItemsService} from '../../services/Items.service';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
-  selector: 'navbar',
+  selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  searchValue;
-
-  constructor(public itemsService: ItemsService, public authService: AuthService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.itemsService.searchByTag.subscribe(tag => {
-      this.searchValue = tag;
-      this.searchInItems(this.searchValue);
-    });
-  }
-
-  searchInItems(searchKeyWord: string) {
-    this.itemsService.searchInItemsKeyWord.next(searchKeyWord);
   }
 }
