@@ -1,0 +1,40 @@
+.post-left {
+    float: right;
+}
+.post-left ul {
+    margin-left: 0;
+    padding: 0;
+}
+.post-left ul li {
+    float: right;
+    margin-right: inherit;
+    margin-left: 10px;
+}
+.post-right {
+    float: left;
+}
+.tags a {
+	background: #ededed url(../img/tag_bg.png) no-repeat 9% center;
+    display: inline-block;
+    margin: 5px 0 10px 14px;
+    padding: 0 11px 0 28px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.avatar {
+    float: right;
+    margin-right: inherit;
+    margin-left: 11px;
+}

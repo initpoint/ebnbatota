@@ -1,0 +1,845 @@
+/*============================================================================================*/
+/* 1.  SITE STRUCTURE and TYPOGRAPHY */
+/*============================================================================================*/
+
+/*-------- 1.3 Structure --------*/
+
+#logo_home h1 a, header.sticky #logo_home h1 a, header#plain #logo_home h1 a, header#colored #logo_home h1 a{
+	background-position:right top!important;
+}
+ul#top_links {
+    float: left;
+}
+
+a#access_link, a#wishlist_link {
+    padding-left: inherit;
+    padding-right: 16px;
+}
+#access_link:before, #wishlist_link:before {
+    left: inherit;
+    right: 0;
+}
+
+a#lang_link, a#currency_link {
+    padding-left: inherit;
+    padding-right: 20px;
+}
+#lang_link:before, #currency_link:before {
+    left: inherit;
+    right: 0;
+}
+
+ul#top_links li {
+    border-right: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: inherit;
+    margin-right: 5px;
+    padding-right: inherit;
+    padding-left: 8px;
+}
+
+ul#top_links li:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 8px;
+    padding-right: 0;
+}
+
+ul#top_links li:last-child {
+    border-left: none;
+}
+header#plain ul#top_links li{border-left: 1px solid rgba(0,0,0,0.1);}
+header#plain ul#top_links li:first-child{border-left: 1px solid rgba(0,0,0,0.1);}
+header#plain ul#top_links li:last-child{border-left: none;}
+
+ul#top_tools {
+    right: inherit;
+    left: 15px;
+}
+
+.dropdown-cart .dropdown-menu {
+    margin-left: inherit;
+    margin-right: -217px;
+}
+
+.dropdown-cart .dropdown-menu:before {
+    right: auto;
+    left: 10%;
+    margin-left: inherit;
+    margin-right: -7px;
+}
+
+ul#cart_items li strong {
+    float: right;
+}
+
+ul#cart_items li .image {
+    float: right;
+    margin-right: inherit;
+    margin-left: 10px;
+}
+
+ul#cart_items li a.action {
+    right: inherit;
+    left: 15px;
+}
+
+ul#cart_items li:last-child div {
+    text-align: left;
+}
+
+.search-overlay-menu form button {
+    right: inherit;
+    left: 0;
+}
+
+#sign-in-dialog .form-group input.form-control {
+    padding-left: inherit;
+    padding-right: 40px!important;
+}
+#sign-in-dialog .form-group i {
+    left: auto;
+    right: 12px;
+}
+#sign-in-dialog .form-group button {
+    right: auto!important;
+    left: 5px!important;
+}
+
+.mfp-arrow.mfp-arrow-left {
+    left: 15px!important;
+}
+.mfp-arrow.mfp-arrow-right {
+    right: 15px!important;
+}
+
+a#filters_col_bt .icon_set_1_icon-65 {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+ .dropdown-mini .dropdown-menu {
+  text-align:!important;
+  margin: 7px -50px 0 0;
+}
+
+ .dropdown-mini .dropdown-menu:before {
+    right: auto;
+    left: 10%;
+     margin-left: 0;
+    margin-right: -7px;
+}
+.dropdown-mini .dropdown-menu ul#lang_menu li a {
+   text-align: right;
+}
+ .dropdown-mini .dropdown-menu ul#lang_menu li a:hover{
+     padding-left:inherit;
+     padding-right:15px;
+}
+
+/*-------- Footer --------*/
+a#phone, a#email_footer {
+    padding-left: inherit;
+    padding-right: 40px;
+}
+a#phone:before, a#email_footer:before {
+    left: inherit;
+    right: 0;
+}
+
+.styled-select {
+    background: #434343 url(../img/down_arrow_select.png) no-repeat left center;
+}
+.styled-select select {
+    padding: 7px 15px 5px 5px;
+}
+
+footer .post {
+    padding-left: inherit;
+    padding-right: 80px;
+}
+footer .post figure {
+    left: inherit;
+    right: 0;
+}
+footer .gallery-image a {
+    padding-right: inherit;
+    padding-left: 10px;
+    float: right;
+}
+/*-------- 1.4 menu --------*/
+
+/* All styles for screen size over 992px
+================================================== */
+@media only screen and (min-width: 992px) {
+    /* Submenu + megamenu*/
+    .main-menu ul ul,
+    .main-menu ul li .menu-wrapper {
+        left: auto;
+        right: 3px;
+    }
+
+    .main-menu ul ul li:hover>a {
+        padding-left: inherit;
+        padding-right: 15px;
+    }
+
+    /* Megamenu */
+    .main-menu ul li.megamenu .menu-wrapper {
+        width: 1115px;
+        float: right;
+        left: 0;
+        right: auto;
+    }
+
+    /* Submenu 3rd level v.1.4 */
+    .main-menu ul ul ul {
+        left: inherit;
+        right: 100%;
+    }
+
+    /* Arrows top */
+    .main-menu ul ul:before {
+        left: inherit;
+        right: 15%;
+        margin-left: inherit;
+        margin-right: -7px;
+    }
+
+    /* Arrows top 3rd level v.1.4*/
+    .main-menu ul ul ul:before {
+        margin-left: inherit;
+        margin-right: 0;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+
+    .main-menu ul li.megamenu .menu-wrapper {
+        width: 940px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+
+    /* Hamburger menu button*/
+    .cmn-toggle-switch {
+        right: inherit;
+        left: 20px;
+    }
+
+    ul#top_tools,
+    .sticky ul#top_tools {
+        margin: 3px 0 0 45px;
+    }
+
+    /* Menu mobile left panel */
+    .main-menu {
+    	transform: translateX(105%);
+        left: inherit;
+        right: 0;
+    }
+    .main-menu h3 {
+	    padding: 0 15px 15px 0;
+	}
+
+    .main-menu ul > li i{float:left;}
+
+    /* Menu mobile second level */	
+	.main-menu ul li.submenu ul{border-left:none; border-right:1px solid #ededed;margin:0 25px 15px 0;}
+
+	/* Menu mobile 3rd level */	
+	.main-menu ul li.submenu ul ul{border-left:inherit;border-right:none;margin:0 15px 0 0;}
+
+	.main-menu ul li.submenu ul ul {
+	    border-right:1px solid #ededed;
+	    margin: 0 25px 0 0;
+	}
+}
+/*============================================================================================*/
+/* 2.  CONTENT  */
+/*============================================================================================*/
+.other_tours ul li a i {
+	margin-right: 2px;
+	margin-left: 5px;
+}
+.other_tours_price {
+	float: left;
+	margin-right: inherit;
+	margin-left: 5px;
+}
+.banner a {
+	right: inherit;
+	left: 30px;
+}
+
+@media (max-width: 767px) {
+	.banner a {
+	    position: relative;
+	    right: 0;
+	    left: 0;
+	}
+}
+
+.tabs nav ul li {
+    float: right;
+}
+.tabs nav a:before {
+    margin: -0.25em 0 0 0.4em;
+}
+@media screen and (max-width: 52.375em) {
+	.tabs nav a:before {
+		margin-right: inherit;
+		margin-left: 0;
+	}
+}
+
+.list_tours_tabs ul li {
+    padding: 15px 70px 10px 5px;
+}
+.list_tours_tabs ul li figure {
+    left: inherit;
+    right: 10px;
+}
+.list_tours_tabs ul li:last-child {
+	padding-left: inherit;
+    padding-right: 15px;
+}
+
+#nav-search-in {
+    left: inherit;
+    right: 0;
+}
+#twotabsearchtextbox {
+    padding: 3px 150px 0 0;
+}
+.nav-submit-button {
+    right: inherit;
+    left: 5px;
+}
+#nav-search-in #nav-search-in-content {
+    margin: 5px 15px 0 65px;
+}
+#nav-search-in.nav-facade-active .nav-down-arrow {
+	right: auto;
+    left: 15px;
+ }
+
+/* Listing */
+ .strip_all_tour_list .wishlist {
+ 	 right: auto;
+    left: 25px;
+}
+.img_list .short_info {
+    text-align: right;
+}
+.tour_list_desc {
+    padding: 10px 0 0 20px;
+    border-right: none;
+    border-left: 1px solid #ededed;
+}
+.price_list {
+    margin-left: inherit;
+    margin-right: -15px;
+}
+ul#cat_nav i {
+	margin-right: inherit;
+    margin-left: 5px;
+    float: right;
+}
+ul#cat_nav li a:after {
+    right: auto;
+    left: 15px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.icheckbox_square-grey, .iradio_square-grey {
+    margin: 0 0 0 10px!important;
+}
+.filter_type ul li .rating {
+    left: inherit;
+    right: -7px;
+}
+.view_on_map {
+   	padding: 8px 30px 0 10px;
+}
+.view_on_map:before {
+    left: auto;
+    right: 15px;
+}
+
+/* Detail pages */
+#price_single_main {
+    text-align: left;
+}
+
+#rating_summary ul li .rating {
+    float: left;
+}
+.review_strip_single img {
+    left: inherit;
+    right: 0;
+}
+.review_strip_single small {
+    float: left;
+}
+.review_strip_single h4 {
+    margin: -12px 90px 35px 0;
+}
+
+/* Cart section */
+.thumb_cart {
+    margin-right: inherit;
+    margin-left: 10px;
+    float: right;
+}
+.switch-light {
+    float: left!important;
+}
+
+
+.progress-bar {
+    float: right;
+}
+.bs-wizard > .bs-wizard-step:first-child > .progress {
+    left: auto;
+    right: 50%;
+}
+.form_title {
+    padding-left: inherit;
+    padding-right: 55px;
+}
+.step {
+    border-left: 0;
+    border-right: 1px solid #ddd;
+    padding: 20px 31px 20px 0;
+    margin: 0 20px 10px 0;
+}
+.form_title h3 strong {
+    left: inherit;
+    right: 0;
+}
+
+/* General pages */
+.feature {
+    padding: 30px 120px 20px 30px;
+}
+.feature i {
+    left: inherit;
+    right: 30px;
+}
+.general_icons ul li {
+    padding: 0 0 20px 20px;
+}
+.general_icons ul li:last-child {
+    padding-left: 0;
+}
+.review_strip {
+    padding: 30px 30px 20px 20px;
+}
+.review_strip img {
+    left: inherit;
+    right: 25px;
+}
+.review_strip h4 {
+    margin: -10px 80px 35px 0;
+}
+
+.input-group button {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group button:hover {
+   color: #fff;
+}
+
+#login {
+    text-align: right;
+}
+/*============================================================================================*/
+/* 3.  COMMON  */
+/*============================================================================================*/
+/* Drop down select filters */
+.styled-select-filters select {
+	padding: 7px 10px 5px 5px;
+}
+
+.styled-select-filters {
+	background: #fff url(../img/down_arrow_select_filters.png) no-repeat -8px center;
+}
+.dd-selected {
+    padding: 0 28px 0 10px !important;
+}
+
+/* Position  breadcrumbs */
+#position ul li:first-child {
+	padding-left: 10px;
+	padding-right: 20px;
+}
+
+#position ul li:first-child:before {
+	left: inherit;
+	right: 0;
+}
+
+#position ul li {
+	padding-right: inherit;
+	margin-right: inherit;
+	padding-left: 8px;
+	margin-left: 3px;
+}
+
+#position ul li:after {
+	right: auto;
+	left: 0;
+	top:0;
+	-webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#position ul li:last-child:after {
+	content: '';
+}
+
+input.qty2 {
+	text-align: center;
+	left: -31px!important;
+	right: auto;
+}
+.dec {
+	left: inherit;
+	right: 0;
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.inc {
+	left: 0;
+	right: inherit;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+/*List*/
+ul.list_ok li {
+	padding-left: inherit;
+	padding-right: 25px;
+}
+ul.list_ok li:before {
+	left: inherit;
+	right: 0;
+}
+
+ul.list_order li {
+	padding-left: inherit;
+	padding-right: 40px;
+}
+
+ul.list_order li span {
+	left: inherit;
+	right: 0;
+}
+#toTop {
+    right: inherit;
+    left: 0;
+    margin: 0 0 0 25px;
+}
+.short_info {
+    left: inherit;
+    right: 0;
+    padding: 45px 5px 8px 10px;
+}
+.short_info .price {
+    float: left;
+}
+.wishlist {
+    right: inherit;
+    left: 10px;
+}
+.owl-theme.list_carousel .owl-next {
+    right: inherit;
+    left: -30px;
+}
+.owl-theme.list_carousel .owl-prev {
+    left: inherit;
+    right: -50px;
+}
+.owl-theme.list_carousel .owl-next i, .owl-theme.list_carousel .owl-prev i{
+	display: inline-block;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.hotel_container .score {
+    left: inherit;
+    right: 5px;
+}
+.hotel_container .short_info.hotel {
+    padding-right: 10px;
+}
+
+@media (max-width: 767px) {
+
+    .styled-select-cat select {
+        padding: 7px 45px 5px 5px;
+    }
+    .styled-select-cat:before {
+        left: auto;
+       right: 15px;
+    }
+}
+/*============================================================================================*/
+/* 5.  UPDATES  */
+/*============================================================================================*/
+
+/*-------- 5.1 Ribbons css --------*/
+.ribbon_3 {
+	left: inherit;
+	right: 10px;
+}
+.ribbon_3 span {
+	-webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+	left: inherit;
+	right: -21px;
+}
+
+.badge_save {
+    right: inherit;
+    left: 0;
+}
+
+/*============================================================================================*/
+/* 6.  UPDATES  */
+/*============================================================================================*/
+/*-------- 6.2 Notify --------*/
+.customized_notify.alert-info{
+	text-align:right;
+}
+.customized_notify {
+	padding-left: inherit!important;
+	padding-right: 80px!important;
+}
+.customized_notify figure{
+ 	 left: inherit;
+ 	 right: 15px;
+}
+.customized_notify .close {
+    right: auto!important;
+    left: 10px!important;
+}
+/*============================================================================================*/
+/* 8.  UPDATES  */
+/*============================================================================================*/
+
+.owl-theme.carousel_item .owl-next {
+    right: auto;
+    left: 15px;
+}
+
+.owl-theme.carousel_item .owl-prev {
+    left: auto;
+    right: -5px;
+}
+
+.owl-theme.carousel_item .owl-next i,.owl-theme.carousel_item .owl-prev i{
+    display: inline-block;
+    -webkit-transform: rotate(180deg);
+  	-moz-transform: rotate(180deg);
+  	-o-transform: rotate(180deg);
+  	-ms-transform: rotate(180deg);
+  	transform: rotate(180deg);
+}
+a.box_news {
+  padding-left: inherit;
+  padding-right: 230px;
+}
+@media (max-width: 767px) {
+  a.box_news {
+    padding-left: inherit;
+    padding-right: 0;
+  }
+}
+a.box_news figure {
+  left: inherit;
+  right: 0;
+}
+a.box_news figure figcaption {
+  right: inherit;
+  left: 0;
+}
+a.box_news ul li {
+  margin-right: inherit;
+  margin-left: 5px;
+}
+a.box_news ul li:last-child {
+  margin-right: inherit;
+  margin-left: 0;
+}
+a.box_news ul li:after {
+  margin: 0 10px 0 0;
+}
+
+.btn_home_align {
+    text-align: left;
+}
+
+/*-------- Home Search V2--------*/
+#search_2 .nav-tabs > li > a {
+	margin-right: inherit;
+	margin-left: 5px;
+	padding-left: inherit;
+	padding: 10px 15px;
+	padding-right: 40px;
+}
+@media (max-width: 575px) {
+  #search_2 .nav-tabs > li > a{
+		padding:10px 15px;
+	}
+}
+#search_2 .nav-tabs > li > a#tab_bt_1:before, #search_2 .nav-tabs > li > a#tab_bt_2:before, #search_2 .nav-tabs > li > a#tab_bt_3:before {
+	margin-right: inherit;
+	margin-left: 5px;
+	left: auto;
+	right: 15px;
+}
+
+.custom-search-input-2 input {
+  border: 0;
+  padding-right: 15px;
+  border-right: 0;
+  border-left: 1px solid #d2d8dd;
+}
+@media (max-width: 991px) {
+  .custom-search-input-2 input {
+    border: none;
+  }
+}
+.custom-search-input-2 input:focus {
+  border-right: none;
+  border-left: 1px solid #d2d8dd;
+}
+@media (max-width: 991px) {
+  .custom-search-input-2 input:focus {
+    border-right: none;
+    border-left: none;
+  }
+}
+.custom-search-input-2 i {
+  right: inherit;
+  left: 1px;
+  padding-left: 15px;
+}
+@media (max-width: 991px) {
+  .custom-search-input-2 i {
+    padding-left: 10px;
+  }
+}
+.custom-search-input-2 input[type='submit'] {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  margin-right: inherit;
+  margin-left: -1px;
+}
+
+
+/*-------- Panel drop down quantity --------*/
+.panel-dropdown a:after {
+    left: 0!important;
+    right: auto!important;
+}
+.panel-dropdown {
+  text-align: right;
+  padding: 15px 15px 0 15px;
+}
+
+.panel-dropdown.active a:after {
+  -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.panel-dropdown .panel-dropdown-content {
+  right: auto;
+  left: 0px;
+}
+@media (max-width: 767px) {
+  .panel-dropdown .panel-dropdown-content {
+    right: 0;
+  }
+}
+.panel-dropdown .panel-dropdown-content:after {
+  left: auto;
+}
+
+.qtyTotal {
+  right: 2px;
+  left: auto;
+}
+
+.qtyButtons label {
+  padding-right: inherit;
+  padding-left: 15px;
+}
+
+.datepicker thead tr:first-child th.next:before, .datepicker thead tr:first-child th.prev:before {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    display: inline-block;
+}
+
+.rtl .dropdown-menu, [dir=rtl] .dropdown-menu {
+	right: auto!important;
+    left: inherit;
+    text-align: right;
+}
+
+.mfp-content {
+    text-align: right;
+}
+
+#sign-in-dialog {
+    text-align: right;
+}
+
+#sign-in-dialog .mfp-close, #small-dialog .mfp-close {
+   right: inherit;
+   left: 20px;
+}
+
+.small-dialog-header {
+    right: -30px;
+    left: auto;
+}
+
+a.social_bt.facebook:before, a.social_bt.google:before, a.social_bt.linkedin:before {
+    left: inherit;
+    right: 12px;
+}

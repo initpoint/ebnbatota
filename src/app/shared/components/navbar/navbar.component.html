@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="width: 100%;">
+
+  <a class="navbar-brand ml-5" [routerLink]="['/main']">
+    <img src="assets/images/logo.png" width="170" height="60" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <form class="form-inline my-2 mr-auto ml-auto  my-lg-0">
+      <input class="form-control search-input mr-sm-2" (keyup)="searchInItems($event.target.value)"
+             type="search" placeholder="Search" aria-label="Search" [value]="searchValue">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+  <button class="btn btn-outline-primary ml-3 mr-3" (click)="authService.logout()"><i class="fa fa-sign-out"></i></button>
+<!--  <button class="btn ml-3" [routerLink]="['/profile', currentUserId]"><i class="fa fa-user-circle"></i></button>-->
+</nav>

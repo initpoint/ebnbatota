@@ -1,0 +1,72 @@
+/* The line */
+.cbp_tmtimeline:before {
+	left: auto;
+	margin-left: 0;
+	right: 20%;
+	margin-right: -8px;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime {
+	padding-right: inherit;
+	padding-left: 100px;
+	left: auto;
+	right: 0;
+}
+.cbp_tmtimeline > li .cbp_tmtime span {
+	text-align: left;
+}
+
+img.speaker {
+	margin-left: inherit;
+	margin-right: 15px;
+}
+.cbp_tmtimeline > li .cbp_tmlabel {
+	margin: 0 25% 15px 0;
+}
+.cbp_tmtimeline > li .cbp_tmlabel:after {
+	right: auto;
+	left: 100%;
+	border-right-color: transparent;
+	border-left-color: #f2f2f2;
+}
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+	border-left-color:#fff;
+	border-right-color:transparent;
+}
+
+.cbp_tmtimeline > li .cbp_tmicon {
+	left: auto;
+	right: 19.6%;
+	margin: 0 -25px 0 0;
+}
+
+.cbp_tmtimeline > li .cbp_tmlabel .float-right {
+	float: left!important;
+}
+
+@media screen and (max-width: 47.2em) {
+	
+	.cbp_tmtimeline > li .cbp_tmtime span {
+		text-align: right;
+	}
+	.cbp_tmtimeline > li .cbp_tmlabel {
+	    margin: 0 0 35px 0!important;
+	}
+	.cbp_tmtimeline > li .cbp_tmlabel:after {
+		right: 20px;
+		left: auto;
+		border-left-color: transparent;
+	}
+
+	.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+		border-left-color: transparent;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmicon {
+		position: relative;
+		float: left;
+		left: auto;
+		right: auto;
+		margin: -65px 5px 0 0px;
+	}	
+}

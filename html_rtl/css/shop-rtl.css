@@ -1,0 +1,47 @@
+.shop-section .items-sorting .form-group {
+    float: left;
+}
+.shop-section .items-sorting select {
+    background: url(../img/icon-select.png) 10px center no-repeat;
+}
+.input-group button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.prod-tabs .reviews-container .review-box {
+    padding-left: inherit;
+    padding-right: 100px;
+}
+.prod-tabs .reviews-container .rev-thumb {
+    left: inherit;
+    right: 0;
+}
+
+.cart-section .totals-table .col {
+  float: right;
+}
+
+.checkout-page .orders-table li img {
+    margin-right: inherit;
+    margin-left: 10px;
+}
+.your-order .coupon-code .form-group .btn-field {
+    padding-left: inherit;
+    padding-right: 15px;
+}
+.checkout-page .payment-options li .radio-option input[type="radio"] {
+    left: inherit;
+    right: 0;
+}
+.checkout-page .payment-options li .radio-option label {
+    padding-left: inherit;
+    padding-right: 30px;
+    position: relative;
+    top:-3px;
+}
+.checkout-page .payment-options li .radio-option label img {
+    padding-left: inherit;
+    padding-right: 30px;
+}

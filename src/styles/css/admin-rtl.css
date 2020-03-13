@@ -1,0 +1,24 @@
+.tabs nav ul li {
+	margin: 0 0 0 0.25em ;
+	float: right;
+}
+.tabs nav a:before {
+    margin: -0.25em 0 0 0.4em;
+}
+.strip_booking h3 {
+    padding-left: inherit;
+    padding-right: 65px;
+}
+.strip_booking h3.hotel_booking:before, .strip_booking h3.tours_booking:before, .strip_booking h3.transfers_booking:before{
+  left:inherit;
+  right: 0;
+}
+ul.info_booking {
+    padding: 15px 0 15px 25px;
+    border-right: 0;
+    border-left: 1px solid #ededed;
+    text-align: left;
+}
+ul#profile_summary li span {
+    left: 0;
+}

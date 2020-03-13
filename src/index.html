@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+  <title>Ebn Batota</title>
+  <base href="/">
+  <!--        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <!--        <link rel="icon" type="image/x-icon" href="favicon.ico">-->
+
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+  <!-- GOOGLE WEB FONT -->
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
+
+  <!-- COMMON CSS -->
+  <link href="styles/css/bootstrap-rtl.min.css" rel="stylesheet">
+  <link href="styles/css/style.css" rel="stylesheet">
+  <link href="styles/css/style-rtl.css" rel="stylesheet">
+  <link href="styles/css/vendors.css" rel="stylesheet">
+
+  <!-- CUSTOM CSS -->
+  <link href="styles/css/custom.css" rel="stylesheet">
+
+  <!--Review modal validation -->
+<!--  <script src="assets/validate.js"></script>-->
+
+  <!-- Map -->
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+<!--  <script src="js/map.js"></script>-->
+  <script src="js/infobox.js"></script>
+
+  <!-- Common scripts -->
+  <script src="js/jquery-2.2.4.min.js"></script>
+  <script src="js/common_scripts_min_rtl.js"></script>
+  <script src="js/functions_rtl.js"></script>
+
+  <!-- Date and time pickers -->
+  <script src="js/jquery.sliderPro.min.js"></script>
+  <!-- Fixed sidebar -->
+  <script src="js/theia-sticky-sidebar.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function ($) {
+      console.log('working in here');
+      $('#Img_carousel').sliderPro({
+        width: 960,
+        height: 500,
+        fade: true,
+        arrows: true,
+        buttons: false,
+        fullScreen: false,
+        smallSize: 500,
+        startSlide: 0,
+        mediumSize: 1000,
+        largeSize: 3000,
+        thumbnailArrows: true,
+        rightToLeft: true,
+        autoplay: false
+      });
+    });
+  </script>
+
+  <!-- Date and time pickers -->
+  <script>
+    $('input.date-pick').datepicker({
+      rtl: true
+    });
+    $('input.date-pick').datepicker('setDate', 'today');
+    $('input.time-pick').timepicker({
+      minuteStep: 15,
+      showInpunts: false
+    })
+  </script>
+
+  <script>
+    jQuery('#sidebar').theiaStickySidebar({
+      additionalMarginTop: 80
+    });
+  </script>
+</head>
+
+<body class="rtl">
+<app-root></app-root>
+</body>
+
+</html>

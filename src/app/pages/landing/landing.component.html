@@ -1,0 +1,47 @@
+<div class="align body" style="height: 100vh;">
+  <img src="assets/images/logo.png" width="170" height="70" style="margin: 10px;">
+  <div class="grid">
+    <div id="login" [hidden]="signupFlag">
+      <h2><span class="fontawesome-lock"></span>Sign In</h2>
+      <fieldset>
+        <p><label for="email">E-mail address</label></p>
+        <p><input type="email" id="email" name="email" [(ngModel)]="loginVM.email" placeholder="mail@address.com"></p>
+
+        <p><label for="password">Password</label></p>
+        <p><input type="password" id="password" name="password" [(ngModel)]="loginVM.password" placeholder="password">
+        </p>
+
+        <button type="button" class="btn btn-outline-secondary" (click)="signupFlag=!signupFlag">Sign Up</button>
+        <button type="button" class="btn btn-primary pull-right" (click)="login()">Sign In</button>
+
+        <p><input type="button" value="Login as user15" (click)="login('user15@mailinator.com','a12345678')"><br>
+          <input type="button" value="Login as Normal User" (click)="login('normaluser@mail.com','12345678')"><br>
+          <input type="button" value="Login as Admin" (click)="login('admin@mail.com','12345678')"><br>
+          <input type="button" value="Login as Visitor" (click)="login('visitor@mail.com','12345678')"></p>
+      </fieldset>
+    </div>
+
+    <div id="login" [hidden]="!signupFlag">
+      <h2><span class="fontawesome-lock"></span>Sign Up</h2>
+      <fieldset>
+        <p><label for="first_name">First Name</label></p>
+        <p><input type="first_name" id="first_name" name="first_name" [(ngModel)]="signupVM.first_name"
+                  placeholder="John"></p>
+
+        <p><label for="last_name">Last Name</label></p>
+        <p><input type="last_name" id="last_name" name="last_name" [(ngModel)]="signupVM.last_name" placeholder="Doe">
+        </p>
+
+        <p><label for="email">E-mail address</label></p>
+        <p><input type="email" id="email" name="email" [(ngModel)]="signupVM.email" placeholder="mail@address.com"></p>
+
+        <p><label for="password">Password</label></p>
+        <p><input type="password" id="password" name="password" [(ngModel)]="signupVM.password" placeholder="password">
+        </p>
+
+        <button type="button" class="btn btn-outline-secondary" (click)="signupFlag=!signupFlag">Sign In</button>
+        <button type="button" class="btn btn-primary pull-right" (click)="signup()">Sign Up</button>
+      </fieldset>
+    </div>
+  </div>
+</div>
