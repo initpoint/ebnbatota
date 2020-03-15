@@ -7,93 +7,84 @@ import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class ItemsService {
-    currentItem = null;
-    searchInItemsKeyWord = new BehaviorSubject('');
-    searchByTag = new BehaviorSubject('');
-    searchTextApiUrl = 'https://tmclassanalysis-staging.herokuapp.com/classification-search/search-database/internal/api';
+  currentItem = null;
+  searchInItemsKeyWord = new BehaviorSubject('');
+  searchByTag = new BehaviorSubject('');
+  searchTextApiUrl = 'https://tmclassanalysis-staging.herokuapp.com/classification-search/search-database/internal/api';
 
 
-    constructor(public db: AngularFirestore, public toastrService: ToastrService, public httpClient: HttpClient) {
-    }
+  constructor(public db: AngularFirestore, public toastrService: ToastrService, public httpClient: HttpClient) {
+  }
 
-    getItems() {
-        return this.db.collection<Item>('items').snapshotChanges()
-            .pipe(map(x => x.map(y => {
-                return {id: y.payload.doc.id, ...y.payload.doc.data()};
-            })));
-    }
+  getItems() {
+    return this.db.collection<Item>('items').snapshotChanges()
+      .pipe(map(x => x.map(y => {
+        return {id: y.payload.doc.id, ...y.payload.doc.data()};
+      })));
+  }
 
-    getUserItems(userId: string) {
-        return this.db.collection<Item>('items', ref => ref.where('user.email', '==', userId)).snapshotChanges()
-            .pipe(map(x => x.map(y => {
-                return {id: y.payload.doc.id, ...y.payload.doc.data()};
-            })));
-    }
+  getItem(id) {
+    return this.db.collection<Item>('items/' + id).snapshotChanges()
+      .pipe(map(x => x.map(y => {
+        return {id: y.payload.doc.id, ...y.payload.doc.data()};
+      })));
+  }
 
-    getOthersPendingItems(userId: string) {
-        return this.db.collection<Item>('items', ref => ref.where('user.email', '<', userId)
-            .where('user.email', '>', userId)
-            .where('state', '==', 2)).snapshotChanges()
-            .pipe(map(x => x.map(y => {
-                return {id: y.payload.doc.id, ...y.payload.doc.data()};
-            })));
-    }
+  getUserItems(userId: string) {
+    return this.db.collection<Item>('items', ref => ref.where('user.email', '==', userId)).snapshotChanges()
+      .pipe(map(x => x.map(y => {
+        return {id: y.payload.doc.id, ...y.payload.doc.data()};
+      })));
+  }
 
-    createItem(item: Item) {
-        Object.keys(item).forEach(key => item[key] === undefined ? delete item[key] : {});
-        Object.keys(item.user).forEach(key => item.user[key] === undefined ? delete item.user[key] : {});
-        Object.keys(item.keywords).forEach(key => item.keywords[key] === undefined ? delete item.keywords[key] : {});
-        const o = {user: {}, keywords: []};
-        Object.keys(item).map(key => {
-            if (key === 'user') {
-                o['user'] = {...item.user};
-            } else if (key === 'keywords') {
-                o['keywords'] = item.keywords.map(keyword => {
-                    return {...keyword};
-                });
-            } else {
-                o[key] = item[key];
-            }
-        });
-        this.db.collection('items').add(o).then(res => {
-            this.toastrService.success('Item Added.');
-        });
-    }
+  getOthersPendingItems(userId: string) {
+    return this.db.collection<Item>('items', ref => ref.where('user.email', '<', userId)
+      .where('user.email', '>', userId)
+      .where('state', '==', 2)).snapshotChanges()
+      .pipe(map(x => x.map(y => {
+        return {id: y.payload.doc.id, ...y.payload.doc.data()};
+      })));
+  }
 
-    updateCurrentItem() {
-        const item: Item = this.currentItem;
-        localStorage.setItem('currentItem', JSON.stringify(item));
-        Object.keys(item).forEach(key => item[key] === undefined ? delete item[key] : {});
-        Object.keys(item.user).forEach(key => item.user[key] === undefined ? delete item.user[key] : {});
-        Object.keys(item.keywords).forEach(key => item.keywords[key] === undefined ? delete item.keywords[key] : {});
-        const o = {user: {}, keywords: []};
-        Object.keys(item).map(key => {
-            if (key === 'user') {
-                o['user'] = {...item.user};
-            } else if (key === 'keywords') {
-                o['keywords'] = item.keywords.map(keyword => {
-                    return {...keyword};
-                });
-            } else {
-                o[key] = item[key];
-            }
-        });
-        return this.db.doc('items/' + item.id).set(o).then((res) => {
-            this.toastrService.success('Item Updated.');
-        });
-    }
+  createItem(item: Item) {
+    Object.keys(item).forEach(key => item[key] === undefined ? delete item[key] : {});
+    // Object.keys(item.user).forEach(key => item.user[key] === undefined ? delete item.user[key] : {});
+    // Object.keys(item.keywords).forEach(key => item.keywords[key] === undefined ? delete item.keywords[key] : {});
+    const o = {};
+    Object.keys(item).map(key => {
+      o[key] = item[key];
+    });
+    this.db.collection('items').add(o).then(res => {
+      this.toastrService.success('Item Added.');
+    });
+  }
 
-    deleteItem(itemId: string) {
-        this.db.doc('items/' + itemId).delete();
-    }
+  updateCurrentItem() {
+    const item: Item = this.currentItem;
+    localStorage.setItem('currentItem', JSON.stringify(item));
+    Object.keys(item).forEach(key => item[key] === undefined ? delete item[key] : {});
+    // Object.keys(item.user).forEach(key => item.user[key] === undefined ? delete item.user[key] : {});
+    // Object.keys(item.keywords).forEach(key => item.keywords[key] === undefined ? delete item.keywords[key] : {});
+    const o = {};
+    Object.keys(item).map(key => {
+      o[key] = item[key];
+    });
+    return this.db.doc('items/' + item.id).set(o).then((res) => {
+      this.toastrService.success('Item Updated.');
+    });
+  }
+
+  deleteItem(itemId: string) {
+    this.db.doc('items/' + itemId).delete();
+  }
 
 
-    search(searchText) {
-        const token = localStorage.getItem('token');
-        return this.httpClient.get(`${this.searchTextApiUrl}?class-txt=&search-txt=${encodeURIComponent(searchText)}`
-            , {headers: {Authorization: `Token ${token}`}});
-    }
+  search(searchText) {
+    const token = localStorage.getItem('token');
+    return this.httpClient.get(`${this.searchTextApiUrl}?class-txt=&search-txt=${encodeURIComponent(searchText)}`
+      , {headers: {Authorization: `Token ${token}`}});
+  }
 }

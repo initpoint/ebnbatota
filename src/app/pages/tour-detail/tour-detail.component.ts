@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from 'src/app/shared/services/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {NotifierService} from 'angular-notifier';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {LoginVM, SignUpVM} from 'src/app/shared/models/login.model';
 import {ToastrService} from 'ngx-toastr';
 import {HttpClient} from '@angular/common/http';
-import * as $ from 'jquery';
+import {ItemsService} from '../../shared/services/Items.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-tour-detail',
@@ -17,55 +18,27 @@ export class TourDetailComponent implements OnInit {
   loginVM = new LoginVM();
   signupVM = new SignUpVM();
   signupFlag = false;
+  selectedItem;
 
   constructor(
     public auth: AuthService,
-    private router: Router,
+    private router: ActivatedRoute,
     private jwtHelper: JwtHelperService,
     private toastrService: ToastrService,
     private notifierService: NotifierService,
-    public httpClient: HttpClient) {
+    public httpClient: HttpClient,
+    public itemsService: ItemsService) {
   }
 
   ngOnInit() {
-    // this.notifierService.show({type: 'success', message: 'hey there'});
-  }
 
-  login(email?, pass?) {
-    // handle the demo login
-    if (email && pass) {
-      this.loginVM.email = email;
-      this.loginVM.password = pass;
-    }
-
-    const body = new FormData();
-    body.append('username', this.loginVM.email);
-    body.append('password', this.loginVM.password);
-    this.httpClient.post('https://tmclassanalysis-staging.herokuapp.com/api-token-auth/', body).subscribe(res => {
-      localStorage.setItem('token', res['token']);
-      localStorage.setItem('email', this.loginVM.email);
-      this.toastrService.success('Login Successful. Loading User Data...');
-      this.auth.updateCurrentUser().subscribe(() => {
-        this.router.navigate(['/main']);
-      });
-    }, error => this.toastrService.error(error['message']));
-  }
-
-  signup() {
-    const body = new FormData();
-    body.append('first_name', this.signupVM.first_name);
-    body.append('last_name', this.signupVM.last_name);
-    body.append('email', this.signupVM.email);
-    body.append('password', this.signupVM.password);
-    this.httpClient.post('https://tmclassanalysis-staging.herokuapp.com/register/signup-api/',
-      body).subscribe(res => {
-      this.auth.createUser({
-        firstName: this.signupVM.first_name,
-        lastName: this.signupVM.last_name,
-        email: this.signupVM.email
-      }).then(() => {
-        this.login(this.signupVM.email, this.signupVM.password);
-      });
-    }, error => this.toastrService.error(error['message']));
+    this.selectedItem = this.router.paramMap.pipe(
+      switchMap(params => {
+        // (+) before `params.get()` turns the string into a number
+        console.log("+params.get('id')");
+        console.log(+params.get('id'));
+        return this.itemsService.currentItem || this.itemsService.getItem(+params.get('id'));
+      })
+    );
   }
 }

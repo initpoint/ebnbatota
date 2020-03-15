@@ -6,6 +6,7 @@ import {SearchComponent} from './pages/search/search.component';
 import {CompanyProfileComponent} from './pages/company-profile/company-profile.component';
 
 
+
 const routes: Routes = [
   {path: 'landing', component: LandingComponent},
   {path: 'tour-detail', component: TourDetailComponent},

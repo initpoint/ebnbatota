@@ -48,21 +48,21 @@
 <section class="parallax-window"
          data-parallax="scroll" data-image-src="img/single_tour_bg_1.jpg"
          data-natural-width="1400" data-natural-height="470">
-  <img app-parallax [ratio]="-.8" class="parallax-slider" src="img/single_tour_bg_1.jpg"
+  <img app-parallax [ratio]="-.8" class="parallax-slider" src="{{ selectedItem.imageURL }}"
        style="transform: translate3d(0px, 0px, 0px); position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; max-width: none;">
   <div class="parallax-content-2">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h1>Arc de Triomphe</h1>
-          <span>Champ de Mars, 5 Avenue Anatole, 75007 Paris.</span>
+          <h1>{{selectedItem.title}}</h1>
+          <!--<span>Champ de Mars, 5 Avenue Anatole, 75007 Paris.</span>-->
           <span class="rating"><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i
             class="icon-smile voted"></i><i class="icon-smile voted"></i><i
             class="icon-smile"></i><small>(75)</small></span>
         </div>
         <div class="col-md-4">
           <div id="price_single_main">
-            from/per person <span><sup>$</sup>52</span>
+            from/per person <span><sup>$</sup>{{selectedItem.price}}</span>
           </div>
         </div>
       </div>
@@ -84,17 +84,17 @@
       <div class="col-lg-8" id="single_tour_desc">
         <div id="single_tour_feat">
           <ul>
-            <li><i class="icon_set_1_icon-4"></i>Museum</li>
-            <li><i class="icon_set_1_icon-83"></i>3 Hours</li>
+            <!--<li><i class="icon_set_1_icon-4"></i>Museum</li>-->
+            <!--<li><i class="icon_set_1_icon-83"></i>3 Hours</li>-->
             <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
             <li><i class="icon_set_1_icon-82"></i>144 Likes</li>
-            <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-            <li><i class="icon_set_1_icon-97"></i>Audio guide</li>
-            <li><i class="icon_set_1_icon-29"></i>Tour guide</li>
+            <li><i class="icon_set_1_icon-22"></i>حيوانات اليفه</li>
+            <!--<li><i class="icon_set_1_icon-97"></i></li>-->
+            <li><i class="icon_set_1_icon-29"></i>مرشد سياحى</li>
           </ul>
         </div>
 
-        <p class="d-none d-md-block d-block d-lg-none"><a class="btn_map" data-toggle="collapse" href="#collapseMap"
+        <p class="d-none d  -md-block d-block d-lg-none"><a class="btn_map" data-toggle="collapse" href="#collapseMap"
                                                           aria-expanded="false" aria-controls="collapseMap"
                                                           data-text-swap="Hide map" data-text-original="View on map">View
           on map</a></p>

@@ -6,6 +6,9 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 import {LoginVM, SignUpVM} from 'src/app/shared/models/login.model';
 import {ToastrService} from 'ngx-toastr';
 import {HttpClient} from '@angular/common/http';
+import {ItemsService} from '../../shared/services/Items.service';
+import {Item} from '../../shared/models/items.model';
+
 
 @Component({
   selector: 'app-landing',
@@ -16,6 +19,7 @@ export class LandingComponent implements OnInit {
   loginVM = new LoginVM();
   signupVM = new SignUpVM();
   signupFlag = false;
+  items;
 
   constructor(
     public auth: AuthService,
@@ -23,53 +27,32 @@ export class LandingComponent implements OnInit {
     private jwtHelper: JwtHelperService,
     private toastrService: ToastrService,
     private notifierService: NotifierService,
-    public httpClient: HttpClient) {
+    public httpClient: HttpClient,
+    public itemsService: ItemsService) {
   }
 
   ngOnInit() {
-    this.notifierService.show({type: 'success', message: 'hey there'});
-  }
-
-  login(email?, pass?) {
-    // handle the demo login
-    if (email && pass) {
-      this.loginVM.email = email;
-      this.loginVM.password = pass;
-    }
-
-    const body = new FormData();
-    body.append('username', this.loginVM.email);
-    body.append('password', this.loginVM.password);
-    this.httpClient.post('https://tmclassanalysis-staging.herokuapp.com/api-token-auth/', body).subscribe(res => {
-      localStorage.setItem('token', res['token']);
-      localStorage.setItem('email', this.loginVM.email);
-      this.toastrService.success('Login Successful. Loading User Data...');
-      this.auth.updateCurrentUser().subscribe(() => {
-        this.router.navigate(['/main']);
-      });
-    }, error => this.toastrService.error(error['message']));
-  }
-
-  signup() {
-    const body = new FormData();
-    body.append('first_name', this.signupVM.first_name);
-    body.append('last_name', this.signupVM.last_name);
-    body.append('email', this.signupVM.email);
-    body.append('password', this.signupVM.password);
-    this.httpClient.post('https://tmclassanalysis-staging.herokuapp.com/register/signup-api/',
-      body).subscribe(res => {
-      this.auth.createUser({
-        firstName: this.signupVM.first_name,
-        lastName: this.signupVM.last_name,
-        email: this.signupVM.email
-      }).then(() => {
-        this.login(this.signupVM.email, this.signupVM.password);
-      });
-    }, error => this.toastrService.error(error['message']));
+    this.itemsService.getItems().subscribe(items => {
+      this.items = items;
+      console.log(items);
+    });
   }
 
   scrollTo(section02: HTMLElement) {
     // section02.scrollIntoView();
-    section02.scrollIntoView({behavior:"smooth"});
+    section02.scrollIntoView({behavior: 'smooth'});
+  }
+
+
+  searchSubmit() {
+    for (let i = 0; i < 5; i++) {
+      this.itemsService.createItem(new Item("اجمد رحله 2020", "https://firebasestorage.googleapis.com/v0/b/ebn-batota.appspot.com/o/test1.jpg?alt=media&token=7c8bf342-720e-46ee-8831-6e060e4fcf62", "مخيم", "1700", 20, 5, "ابوجالوم و بير العقدة"));
+    }
+    this.router.navigate(['/search']);
+  }
+
+  openDetailedView(item: Item) {
+    this.itemsService.currentItem = item;
+    this.router.navigate(['/tour-detail', {id: item.id}]);
   }
 }
